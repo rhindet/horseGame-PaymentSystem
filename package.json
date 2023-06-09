@@ -1,0 +1,18 @@
+{
+  "name": "stripe_payment",
+  "version": "1.0.0",
+  "description": "HorseGame payment method",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arrap",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^12.9.0"
+  },
+  "engines": {
+    "node":"7"
+  }
+}
