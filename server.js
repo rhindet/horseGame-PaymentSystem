@@ -1,9 +1,10 @@
 const express = require("express");
+const env = require("dotenv").config();
 const app = express();
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
-const stripe = require("stripe")('sk_test_IKYCHOAmUhC7IPTdaoVtO58D');
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -20,6 +21,9 @@ app.post("/create-payment-intent", async (req, res) => {
   const { items } = req.body;
   const { currency } = req.body;
 
+ 
+
+  console.log(req.body)
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
